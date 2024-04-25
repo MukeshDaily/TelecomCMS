@@ -38,8 +38,21 @@ https: https://github.com/MukeshDaily/TelecomCMS.git
 ssh: git@github.com:MukeshDaily/TelecomCMS.git
 Gitlab CLI : gh repo clone MukeshDaily/TelecomCMS
 
+============== TelecomCMS BackEnd (Python Flask) =========
+# Flask Installation
+pip install Flask
 
-==== ==== ==== BackEnd App Flow ==== ==== ==== 
+# Run Flask Application telecom-api.py
+cd backend
+flask run 
+//in case of different app file name use : --app telecom-api run 
+// listen on all public ips:  --host=0.0.0.0
+// enable debug: --debug
+
+# API Accesible at : 
+http://127.0.0.1:5000/
+
+============ TelecomCMS BackEnd App Flow ============ 
 Router
 - app.py
 Controllers:
@@ -64,19 +77,32 @@ php artisan serve
 # Dashboard Accessible at
 http://127.0.0.1:8000/
 
-============== TelecomCMS BackEnd (Python Flask) =========
-# Flask Installation
-pip install Flask
+============ FrontEnd App Flow (Functionality demostration only, no ui design) ============ 
+.env
+routes/web.php
+- register
+- login
+- registration
+- dashboard
+- createCustomerPlan
+- changeCustomerPlan
+- renewCustomerPlan
 
-# Run Flask Application telecom-api.py
-cd backend
-flask run 
-//in case of different app file name use : --app telecom-api run 
-// listen on all public ips:  --host=0.0.0.0
-// enable debug: --debug
+app/Http/Controllers/CustomerController.php
+- registerCustomer
+- login
+- dashboard
+   -- getTelecomAllPlans, getCustomerDetailsByEmail, getCustomerPlan, getCustomerPlanByParam
+- createCustomerPlan
+- changeCustomerPlan
+- renewCustomerPlan
 
-# API Accesible at : 
-http://127.0.0.1:5000/
+Resources/views
+- homepage
+- register
+- login
+- onboarding
+- dashboard
 
 ============== TelecomCMS DB (SQLite)  =========
 # SQLite Installation - Windows/MAC. (Linux comes with default SQlite)
