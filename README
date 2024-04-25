@@ -1,4 +1,5 @@
-TelecomCMS Web Application
+## TelecomCMS Web Application (Functionalities - Frontend, Backend, Database)
+
 ============= APIs =============
 # start backend api server
 flask run
