@@ -1,4 +1,5 @@
-## TelecomCMS Web Application (Functionalities - Frontend, Backend, Database)
+## TelecomCMS Web Application 
+# Basic Working Functionalities - Frontend, Backend, Database
 
 ============= APIs =============
 # start backend api server
