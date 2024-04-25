@@ -1,3 +1,12 @@
+TelecomCMS Web Application
+
+============ Git Repository ================
+GIT URL: https://github.com/MukeshDaily/TelecomCMS
+
+https: https://github.com/MukeshDaily/TelecomCMS.git
+ssh: git@github.com:MukeshDaily/TelecomCMS.git
+Gitlab CLI : gh repo clone MukeshDaily/TelecomCMS
+
 ============== TelecomCMS Frontend (Laravel) =========
 # Laravel Installation
 composer create-project laravel/laravel frontend
@@ -38,9 +47,3 @@ sqlite3
 # SQLite Table Structure
 - User Table
 - Plan Table
-
-============== Git  =========
-https: https://github.com/MukeshDaily/TelecomCMS.git
-ssh: git@github.com:MukeshDaily/TelecomCMS.git
-Gitlab CLI : gh repo clone MukeshDaily/TelecomCMS
-
