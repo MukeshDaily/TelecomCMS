@@ -16,6 +16,13 @@ def get_customer_details(cid):
     except Exception as e: 
         return {"error": str(e)}
 
+def get_customer_details_by_email(email):
+    try: 
+        row = cust.get_profile_by_email(email)
+        return row
+    except Exception as e: 
+        return {"error": str(e)}
+
 def get_customer_plan(cid):
     try: 
         row = cplans.get_plan(cid)

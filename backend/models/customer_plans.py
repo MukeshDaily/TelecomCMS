@@ -11,8 +11,8 @@ def create_plan(cust_id, plan_id, status=0):
     return result
 
 def change_plan(cust_id, old_plan_id, new_plan_id):
-    query = "UPDATE customer_plans SET plan_id=? WHERE cust_id= ? AND plan_id= ?"
-    result = db.update(query, [new_plan_id, cust_id, old_plan_id])
+    query = "UPDATE customer_plans SET plan_id=?, status=? WHERE cust_id= ? AND plan_id= ?"
+    result = db.update(query, [new_plan_id, 0, cust_id, old_plan_id])
     return result
 
 def renew_plan(cust_id, plan_id, status):

@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
-    return view('register');
+    return view('register', ['message' => '']);
 });
+
+Route::post('/registration', [CustomerController::class, 'registerCustomer']);
+Route::get('/login', [CustomerController::class, 'login']);
+Route::post('/dashboard', [CustomerController::class, 'dashboard']);
+Route::post('/createCustomerPlan', [CustomerController::class, 'createCustomerPlan']);
+Route::post('/changeCustomerPlan', [CustomerController::class, 'changeCustomerPlan']);
+Route::post('/renewCustomerPlan', [CustomerController::class, 'renewCustomerPlan']);

@@ -14,3 +14,8 @@ def get_profile(cid):
     query = "select * from customers where id = ?"
     row = db.query(query, [cid], one=True)
     return row
+
+def get_profile_by_email(email):
+    query = "select * from customers where email = ?"
+    row = db.query(query, [email], one=True)
+    return row
