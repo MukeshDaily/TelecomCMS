@@ -1,6 +1,15 @@
 ## TelecomCMS Web Application 
 # Basic Working Functionalities - Frontend, Backend, Database
 
+================== Starting Application ==================
+# start backend api server
+cd backend
+flask run
+
+# Start frontend 
+cd frontend
+php artisan serve
+
 ============= APIs =============
 # start backend api server
 flask run
