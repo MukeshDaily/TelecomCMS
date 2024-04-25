@@ -1,4 +1,35 @@
 TelecomCMS Web Application
+============= APIs =============
+# start backend api server
+flask run
+
+Plan Lists: 
+http://127.0.0.1:5000/plans
+
+Register API
+http://127.0.0.1:5000/register?name='Abc Kumar'&email='def@gmail.com'&mobile='8787878787'&dob='11-11-2020'&aadhar='1123-4567-8910'
+
+Customer Profile: input: customer id
+http://127.0.0.1:5000/customer?cid=2
+
+Select Plan: customer id and plan id
+http://127.0.0.1:5000/new-customer-plan?cid=2&pid=1
+Get Customer Plan: input: customer id
+http://127.0.0.1:5000/customer-plan?cid=2
+
+
+Change Plan:
+http://127.0.0.1:5000/customer-change-plan?cid=2&opid=1&npid=2
+Verify changed plan:
+http://127.0.0.1:5000/customer-plan?cid=2
+
+Renew Plan:
+http://127.0.0.1:5000/customer-renew-plan?cid=2&pid=2
+Verify changed status: 
+http://127.0.0.1:5000/customer-plan?cid=2
+
+(For Admin) One Time Create Plans: input :name, cost, validity, status
+http://127.0.0.1:5000/create_plan
 
 ============ Git Repository ================
 GIT URL: https://github.com/MukeshDaily/TelecomCMS
@@ -6,6 +37,21 @@ GIT URL: https://github.com/MukeshDaily/TelecomCMS
 https: https://github.com/MukeshDaily/TelecomCMS.git
 ssh: git@github.com:MukeshDaily/TelecomCMS.git
 Gitlab CLI : gh repo clone MukeshDaily/TelecomCMS
+
+
+==== ==== ==== BackEnd App Flow ==== ==== ==== 
+Router
+- app.py
+Controllers:
+- cms.py
+Models
+- plans.py
+- customers.py
+- customer-plans.py
+Database:
+- db_adapter.py
+- db_connect.py
+- telecomDb.db (SQLite)
 
 ============== TelecomCMS Frontend (Laravel) =========
 # Laravel Installation
@@ -41,9 +87,47 @@ sqlite-tools-win-x64-3450300.zip
 # Set Env variable: Add SQLite path in your PATH environment variable under system Environments
 F:\TelecomCMS\database\sqlite
 
-# Test SQLite; type in command line
-sqlite3
+# Create DB
+sqlite3 telecomDB.db
 
-# SQLite Table Structure
-- User Table
-- Plan Table
+# show dbs and tables
+sqlite3
+.databases
+.tables
+
+# Commands Used FOR DB and table creation
+sqlite3 telecomDB.db
+
+# For storing customer data
+CREATE TABLE customers(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   name VARCHAR(50) NOT NULL,
+   email VARCHAR(50) NOT NULL UNIQUE,
+   mobile VARCHAR(20) NOT NULL UNIQUE,
+   dob VARCHAR(20), 
+   aadhar VARCHAR(20), 
+   reg_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+# For storing static plan data for internal use
+CREATE TABLE plans(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(50) NOT NULL,
+	cost FLOAT NOT NULL,
+	validity INTEGER NOT NULL,
+	status BOOL NOT NULL
+);
+
+# for storing customers plan data, with status
+CREATE TABLE customer_plans(
+   cust_id INTEGER,
+   plan_id INTEGER,
+   plan_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   status BOOL NOT NULL,
+   FOREIGN KEY(cust_id) REFERENCES customers(id)
+   FOREIGN KEY(plan_id) REFERENCES plans(id)
+   PRIMARY KEY (cust_id,plan_id)
+);
+
+
+
