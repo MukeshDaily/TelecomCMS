@@ -1,0 +1,46 @@
+============== TelecomCMS Frontend (Laravel) =========
+# Laravel Installation
+composer create-project laravel/laravel frontend
+
+# Run frontend accessible at
+cd frontend
+php artisan serve
+
+# Dashboard Accessible at
+http://127.0.0.1:8000/
+
+============== TelecomCMS BackEnd (Python Flask) =========
+# Flask Installation
+pip install Flask
+
+# Run Flask Application telecom-api.py
+cd backend
+flask run 
+//in case of different app file name use : --app telecom-api run 
+// listen on all public ips:  --host=0.0.0.0
+// enable debug: --debug
+
+# API Accesible at : 
+http://127.0.0.1:5000/
+
+============== TelecomCMS DB (SQLite)  =========
+# SQLite Installation - Windows/MAC. (Linux comes with default SQlite)
+Download Binaries(Windows / Mac) https://www.sqlite.org/download.html 
+sqlite-dll-win-x64-3450300.zip
+sqlite-tools-win-x64-3450300.zip
+
+# Set Env variable: Add SQLite path in your PATH environment variable under system Environments
+F:\TelecomCMS\database\sqlite
+
+# Test SQLite; type in command line
+sqlite3
+
+# SQLite Table Structure
+- User Table
+- Plan Table
+
+============== Git  =========
+https: https://github.com/MukeshDaily/TelecomCMS.git
+ssh: git@github.com:MukeshDaily/TelecomCMS.git
+Gitlab CLI : gh repo clone MukeshDaily/TelecomCMS
+
