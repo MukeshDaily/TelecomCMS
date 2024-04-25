@@ -12,7 +12,7 @@
         <main class="mt-6">
         <div class="scale-100 p-6">
             {{ $message; }}
-                    <p>Registeration Form (Uncomplete- Only backend and database is complete. Details in README file)</p>
+                    <p>Register</p>
                     <form action="registration" method="POST">
                     @csrf <!-- {{ csrf_field() }} -->
                     <input type="text" id="subcat" name="name" placeholder="Your Name" class="block" required/><br/><br/>
@@ -23,6 +23,7 @@
                     <input type="submit" />
                     </form>
 
+                    <p> <a href="/login">Already registered, login here</a><p>
         </div>
         </main>
 

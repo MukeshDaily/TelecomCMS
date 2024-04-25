@@ -4,11 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
-    return view('register', ['message' => '']);
+    return view('homepage', ['message' => '']);
 });
 
-Route::post('/registration', [CustomerController::class, 'registerCustomer']);
+Route::get('/register', function () {
+    return view('register', ['message' => '']);
+});
 Route::get('/login', [CustomerController::class, 'login']);
+
+Route::post('/registration', [CustomerController::class, 'registerCustomer']);
 Route::post('/dashboard', [CustomerController::class, 'dashboard']);
 Route::post('/createCustomerPlan', [CustomerController::class, 'createCustomerPlan']);
 Route::post('/changeCustomerPlan', [CustomerController::class, 'changeCustomerPlan']);

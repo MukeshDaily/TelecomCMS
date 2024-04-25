@@ -11,16 +11,11 @@
        
         <main class="mt-6">
         <div class="scale-100 p-6">
-                    <p>Login Now</p>
-                    <form action="dashboard" method="POST">
-                    @csrf <!-- {{ csrf_field() }} -->
-                    <input type="email" id="email" value="{{ $email }}" name="email" placeholder="Your Email" class="block" required/><br/><br/>
-                    <input type="submit" value="Login Now"/>
-                    </form>
-                    </form>
-
-                    <p> <a href="/register">Don't have a account, Register here</a><p>
-
+            {{ $message; }}
+            <h2> Telecom CMS </h2>
+            <a href="/login">Login</a> | 
+            <a href="/register">Register</p>
+                   
         </div>
         </main>
 
